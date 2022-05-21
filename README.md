@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Afeez okewunmi</h1>
 <h3 align="center">A passionate frontend developer from Lagos, Nigeria</h3>
-https://dribbble.com/shots/3848914-Programmer-Thomas
+
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=okewunmi&label=Profile%20views&color=0e75b6&style=flat" alt="okewunmi" /> </p>
 
