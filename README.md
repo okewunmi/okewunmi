@@ -16,7 +16,7 @@
 
 - 🤝 I’m looking for help with **js**
 
-- 👨‍💻 All of my projects are available at [https://okewunmi.github.io.git](https://okewunmi.github.io.git)
+- 👨‍💻 All of my projects are available at [https://okewunmi.github.io](https://okewunmi.github.io)
 
 - 💬 Ask me about **react,Js,**
 
