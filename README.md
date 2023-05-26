@@ -8,7 +8,7 @@
 
 <p align="left"> <a href="https://twitter.com/@AfeezOkewunmi" target="blank"><img src="https://img.shields.io/twitter/follow/@AfeezOkewunmi?logo=twitter&style=for-the-badge" alt="@AfeezOkewunmi" /></a> </p>
 
-- 🔭 I’m currently working on [Press-77](https://github.com/okewunmi/press71.git)
+- 🔭 I’m currently working on [Press-77](https://github.com/okewunmi/press-71.git)
 
 - 🌱 I’m currently learning **Project Management, Reactjs, NodeJs**
 
