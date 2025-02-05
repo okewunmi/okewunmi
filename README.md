@@ -1,5 +1,5 @@
-<h1 align="center">Hi 👋, I'm Afeez okewunmi</h1>
-<h3 align="center">A passionate frontend developer from Lagos, Nigeria</h3>
+<h1 align="center">Hi 👋, I'm Abdulafeez okewunmi</h1>
+<h3 align="center">A passionate frontend developer from Lagos, Nigeria.</h3>
 
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=okewunmi&label=Profile%20views&color=0e75b6&style=flat" alt="okewunmi" /> </p>
@@ -10,15 +10,15 @@
 
 - 🔭 I’m currently working on [Press-77](https://github.com/okewunmi/press-71.git)
 
-- 🌱 I’m currently learning **Project Management, Reactjs, NodeJs**
+- 🌱 I’m currently learning **Mobile Developmnent, Cloud,**
 
-- 👯 I’m looking to collaborate on **Reactjs & Nodejs**
+- 👯 I’m looking to collaborate on **Web && Mobile Developer, AI**
 
-- 🤝 I’m looking for help with **js**
+- 🤝 I’m looking for help with **js, Mobile**
 
 - 👨‍💻 All of my projects are available at [okewunmi.netlify.app](https://okewunmi.netlify.app/)
 
-- 💬 Ask me about **react,Js,**
+- 💬 Ask me about **React,Js, React Native, Mobile Development**
 
 - 📫 How to reach me **okewunmiafeezolaide@gmail.com**
 
