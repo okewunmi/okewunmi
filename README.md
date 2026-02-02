@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Abdulafeez okewunmi</h1>
-<h3 align="center">A passionate Frontend & Mobile developer from Lagos, Nigeria.</h3>
+<h3 align="center">A passionate software Engineer with  from Lagos, Nigeria.</h3>
 
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=okewunmi&label=Profile%20views&color=0e75b6&style=flat" alt="okewunmi" /> </p>
@@ -8,13 +8,13 @@
 
 <p align="left"> <a href="https://twitter.com/@AfeezOkewunmi" target="blank"><img src="https://img.shields.io/twitter/follow/@AfeezOkewunmi?logo=twitter&style=for-the-badge" alt="@AfeezOkewunmi" /></a> </p>
 
-- 🔭 I’m currently working on [Press-77](https://github.com/okewunmi/press-71.git)
+- 🔭 I’m currently working on [Cognitive Load Meter - Real-Time Mental Effort Quantifier](https://github.com/okewunmi/)
 
-- 🌱 I’m currently learning **Mobile Developmnent, Cloud,**
+- 🌱 I’m currently learning **BCI, Neuroscience,**
 
-- 👯 I’m looking to collaborate on **Web && Mobile Developer, AI**
+- 👯 I’m looking to collaborate on **Web && Mobile Developer, BCI's, AI**
 
-- 🤝 I’m looking for help with **js, Mobile**
+- 🤝 I’m looking for help with **BCI's**
 
 - 👨‍💻 All of my projects are available at [okewunmi.netlify.app](https://okewunmi.netlify.app/)
 
