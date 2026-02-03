@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Abdulafeez okewunmi</h1>
-<h3 align="left">I'm Software Engineer from Lagos, Nigeria, An energetic and proactive individual with a flexible approach to work, ready to take the position of front-end or Mobile developer to implement user interaction processes and follow client-center mock-ups such as wireframes, visual design comprehensive layouts, and prototypes; coming with eagle-eye for details.</h3>
+<h3 align="right">I'm Software Engineer from Lagos, Nigeria, An energetic and proactive individual with a flexible approach to work, ready to take the position of front-end or Mobile developer to implement user interaction processes and follow client-center mock-ups such as wireframes, visual design comprehensive layouts, and prototypes; coming with eagle-eye for details.</h3>
 
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=okewunmi&label=Profile%20views&color=0e75b6&style=flat" alt="okewunmi" /> </p>
