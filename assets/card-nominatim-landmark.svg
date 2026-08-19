@@ -1,0 +1,7 @@
+<svg width="760" height="120" viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="nominatim-landmark stats">
+  <rect x="0.5" y="0.5" width="759" height="119" rx="12" fill="#0a0a0a" stroke="#232323"/>
+  <rect x="0" y="0" width="6" height="120" rx="3" fill="#00C264"/>
+  <text x="34" y="42" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5">nominatim-landmark</text>
+  <text x="34" y="68" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#9ca3af">Nigerian address geocoder built on OpenStreetMap Nominatim</text>
+  <text x="34" y="100" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#9ca3af">publishing soon</text>
+</svg>

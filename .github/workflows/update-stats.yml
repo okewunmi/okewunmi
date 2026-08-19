@@ -1,56 +1,69 @@
-name: Update Live Stats
+name: Update live stats
 
 on:
   schedule:
-    - cron: "0 6 * * *" # daily at 06:00 UTC
+    # 06:00 UTC every day
+    - cron: "0 6 * * *"
   workflow_dispatch: {}
   push:
     branches: [main]
     paths:
       - "scripts/**"
+      - "package.json"
 
 permissions:
   contents: write
 
+concurrency:
+  group: update-stats
+  cancel-in-progress: true
+
 jobs:
-  update-stats:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
 
-      - name: Setup Node
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
 
       - name: Generate hero + stat cards
         run: npm run generate
+
+      - name: Publish assets/ to live-stats branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish generated assets to live-stats branch
         run: |
+          set -e
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          mkdir -p /tmp/generated
-          cp assets/*.svg /tmp/generated/ 2>/dev/null || true
+          # Stash the freshly generated assets so they survive the branch switch.
+          mkdir -p /tmp/live-stats-assets
+          cp -r assets/. /tmp/live-stats-assets/
 
           git fetch origin live-stats || true
           if git show-ref --verify --quiet refs/remotes/origin/live-stats; then
-            git checkout live-stats
-            git pull origin live-stats
+            git checkout -B live-stats origin/live-stats
           else
             git checkout --orphan live-stats
             git rm -rf . > /dev/null 2>&1 || true
           fi
 
           mkdir -p assets
-          cp /tmp/generated/*.svg assets/ 2>/dev/null || true
+          rm -rf assets/*
+          cp -r /tmp/live-stats-assets/. assets/
 
-          git add assets/*.svg
-          git commit -m "chore: refresh live stats [skip ci]" || echo "Nothing to commit"
-          git push origin live-stats
+          git add assets
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+          else
+            git commit -m "chore: refresh live stats [skip ci]"
+            git push origin live-stats
+          fi

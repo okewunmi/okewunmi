@@ -1,91 +1,151 @@
-// Generates one assets/card-<package>.svg per entry in PACKAGES below,
-// pulling live npm downloads + GitHub stars/forks. No API keys required
-// (GITHUB_TOKEN is optional, just raises the GitHub rate limit).
-//
-// Run with: node scripts/generate-stats.js
+// scripts/generate-stats.js
+// Fetches live GitHub star counts and npm weekly download counts for each
+// featured package, then writes one SVG card per package to assets/.
+// Run via `npm run generate` (needs Node 18+ for global fetch).
 
-import fs from "node:fs";
-import path from "node:path";
+import { writeFileSync, mkdirSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 
-// --- Edit this list as your packages go live / get renamed ---
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ASSETS_DIR = join(__dirname, "..", "assets");
+
+const GITHUB_USER = "okewunmi";
+
+// Add or remove packages here — one card is generated per entry.
 const PACKAGES = [
   {
+    repo: "nominatim-landmark",
+    npmName: "nominatim-landmark",
     label: "nominatim-landmark",
-    npm: "nominatim-landmark",
-    repo: "okewunmi/nominatim-landmark",
+    desc: "Nigerian address geocoder built on OpenStreetMap Nominatim",
   },
   {
+    repo: "react-native-yarngpt",
+    npmName: "react-native-yarngpt",
     label: "react-native-yarngpt",
-    npm: "react-native-yarngpt",
-    repo: "okewunmi/react-native-yarngpt",
+    desc: "React Native client for YarnGPT, Nigerian-accented text-to-speech",
   },
   {
-    // Rename pending (npm name conflict on "ussd-router") —
-    // update npm + repo once you publish under the final name,
-    // e.g. "@okewunmi/ussd-router" or "naija-ussd-router".
+    repo: "ussd-router",
+    npmName: "ussd-router",
     label: "ussd-router",
-    npm: "@okewunmi/ussd-router",
-    repo: "okewunmi/ussd-router",
+    desc: "USSD state router with Africa's Talking and Qrios adapters",
   },
 ];
-// ----------------------------------------------------------------
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const BG = "#0a0a0a";
+const BORDER = "#232323";
+const ACCENT = "#00C264";
+const TEXT = "#f5f5f5";
+const MUTED = "#9ca3af";
+const FONT = "'Segoe UI', Helvetica, Arial, sans-serif";
 
-async function getNpmDownloads(pkgName) {
+async function getStars(repo) {
   try {
     const res = await fetch(
-      `https://api.npmjs.org/downloads/point/last-month/${encodeURIComponent(pkgName)}`
+      `https://api.github.com/repos/${GITHUB_USER}/${repo}`,
+      {
+        headers: {
+          "User-Agent": "okewunmi-profile-stats",
+          Accept: "application/vnd.github+json",
+        },
+      }
     );
-    if (!res.ok) return 0;
+    if (!res.ok) return null;
     const data = await res.json();
-    return data.downloads ?? 0;
+    return typeof data.stargazers_count === "number"
+      ? data.stargazers_count
+      : null;
   } catch {
-    return 0;
+    return null;
   }
 }
 
-async function getGithubStats(repoSlug) {
+async function getWeeklyDownloads(npmName) {
   try {
-    const res = await fetch(`https://api.github.com/repos/${repoSlug}`, {
-      headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {},
-    });
-    if (!res.ok) return { stars: 0, forks: 0 };
+    const res = await fetch(
+      `https://api.npmjs.org/downloads/point/last-week/${npmName}`
+    );
+    if (!res.ok) return null;
     const data = await res.json();
-    return { stars: data.stargazers_count ?? 0, forks: data.forks_count ?? 0 };
+    return typeof data.downloads === "number" ? data.downloads : null;
   } catch {
-    return { stars: 0, forks: 0 };
+    return null;
   }
 }
 
-function cardSvg(name, downloads, stars, forks) {
-  const width = 380;
-  const height = 120;
-  return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="12" fill="#0d1117" stroke="#30363d"/>
-  <text x="20" y="34" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#e6edf3">${name}</text>
-  <text x="20" y="62" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">📦 npm downloads (30d)</text>
-  <text x="360" y="62" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#00c264" text-anchor="end" font-weight="600">${downloads.toLocaleString()}</text>
-  <text x="20" y="86" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">⭐ GitHub stars</text>
-  <text x="360" y="86" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#e6edf3" text-anchor="end" font-weight="600">${stars.toLocaleString()}</text>
-  <text x="20" y="106" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">🍴 Forks</text>
-  <text x="360" y="106" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#e6edf3" text-anchor="end" font-weight="600">${forks.toLocaleString()}</text>
-</svg>`;
+function fmt(n) {
+  if (n === null || n === undefined) return "—";
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return String(n);
+}
+
+function escapeXml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function cardSvg({ label, desc, stars, downloads, publishedSoon }) {
+  const WIDTH = 760;
+  const HEIGHT = 120;
+
+  const rightLine = publishedSoon
+    ? `<text x="34" y="100" font-family="${FONT}" font-size="14" font-weight="600" fill="${MUTED}">publishing soon</text>`
+    : `<text x="34" y="100" font-family="${FONT}" font-size="14" font-weight="600" fill="${ACCENT}">★ ${fmt(
+        stars
+      )} stars</text>
+  <text x="220" y="100" font-family="${FONT}" font-size="14" font-weight="600" fill="${ACCENT}">⬇ ${fmt(
+        downloads
+      )} / week</text>`;
+
+  return `<svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${escapeXml(
+    label
+  )} stats">
+  <rect x="0.5" y="0.5" width="${WIDTH - 1}" height="${
+    HEIGHT - 1
+  }" rx="12" fill="${BG}" stroke="${BORDER}"/>
+  <rect x="0" y="0" width="6" height="${HEIGHT}" rx="3" fill="${ACCENT}"/>
+  <text x="34" y="42" font-family="${FONT}" font-size="22" font-weight="700" fill="${TEXT}">${escapeXml(
+    label
+  )}</text>
+  <text x="34" y="68" font-family="${FONT}" font-size="14" fill="${MUTED}">${escapeXml(
+    desc
+  )}</text>
+  ${rightLine}
+</svg>
+`;
 }
 
 async function main() {
-  const outDir = path.resolve("assets");
-  fs.mkdirSync(outDir, { recursive: true });
+  mkdirSync(ASSETS_DIR, { recursive: true });
 
   for (const pkg of PACKAGES) {
-    const [downloads, gh] = await Promise.all([
-      getNpmDownloads(pkg.npm),
-      getGithubStats(pkg.repo),
+    const [stars, downloads] = await Promise.all([
+      getStars(pkg.repo),
+      getWeeklyDownloads(pkg.npmName),
     ]);
-    const svg = cardSvg(pkg.label, downloads, gh.stars, gh.forks);
-    fs.writeFileSync(path.join(outDir, `card-${pkg.label}.svg`), svg);
+
+    // If the package isn't published yet, npm/GitHub calls will just
+    // return null and the card will render a "publishing soon" state.
+    const publishedSoon = stars === null && downloads === null;
+
+    const svg = cardSvg({
+      label: pkg.label,
+      desc: pkg.desc,
+      stars,
+      downloads,
+      publishedSoon,
+    });
+
+    const outPath = join(ASSETS_DIR, `card-${pkg.repo}.svg`);
+    writeFileSync(outPath, svg, "utf8");
     console.log(
-      `Generated card-${pkg.label}.svg — downloads: ${downloads}, stars: ${gh.stars}, forks: ${gh.forks}`
+      `✓ wrote assets/card-${pkg.repo}.svg (stars: ${
+        stars ?? "n/a"
+      }, downloads/week: ${downloads ?? "n/a"})`
     );
   }
 }
