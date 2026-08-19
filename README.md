@@ -28,7 +28,7 @@ I'm a full-stack and mobile developer based in Lagos, Nigeria, building products
 - Currently building **ChargeFinder NG**, an EV charging station locator for Nigeria's growing EV market
 - I write open-source npm packages aimed at African developer infrastructure — geocoding, TTS, USSD routing
 - Shipped production platforms for community and nonprofit organizations, including the Da Hausa Initiative and Al-Furqan Centre
-- BSc Computer Science · exploring cybersecurity/DevSecOps as a specialization
+- HND Computer Science · exploring cybersecurity/DevSecOps as a specialization
 
 <!-- ════════════════════════  WHAT I DO  ════════════════════════ -->
 
