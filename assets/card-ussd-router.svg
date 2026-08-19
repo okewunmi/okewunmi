@@ -1,0 +1,10 @@
+<svg width="380" height="120" viewBox="0 0 380 120" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="378" height="118" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <text x="20" y="34" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#e6edf3">ussd-router</text>
+  <text x="20" y="62" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">📦 npm downloads (30d)</text>
+  <text x="360" y="62" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#00c264" text-anchor="end" font-weight="600">0</text>
+  <text x="20" y="86" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">⭐ GitHub stars</text>
+  <text x="360" y="86" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#e6edf3" text-anchor="end" font-weight="600">0</text>
+  <text x="20" y="106" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">🍴 Forks</text>
+  <text x="360" y="106" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#e6edf3" text-anchor="end" font-weight="600">0</text>
+</svg>
