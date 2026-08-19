@@ -1,0 +1,56 @@
+name: Update Live Stats
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # daily at 06:00 UTC
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate hero + stat cards
+        run: npm run generate
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish generated assets to live-stats branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          mkdir -p /tmp/generated
+          cp assets/*.svg /tmp/generated/ 2>/dev/null || true
+
+          git fetch origin live-stats || true
+          if git show-ref --verify --quiet refs/remotes/origin/live-stats; then
+            git checkout live-stats
+            git pull origin live-stats
+          else
+            git checkout --orphan live-stats
+            git rm -rf . > /dev/null 2>&1 || true
+          fi
+
+          mkdir -p assets
+          cp /tmp/generated/*.svg assets/ 2>/dev/null || true
+
+          git add assets/*.svg
+          git commit -m "chore: refresh live stats [skip ci]" || echo "Nothing to commit"
+          git push origin live-stats

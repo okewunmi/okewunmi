@@ -1,0 +1,13 @@
+{
+  "name": "okewunmi-profile-stats",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Generates the live-updating SVG hero banner and stat cards for github.com/okewunmi's profile README.",
+  "scripts": {
+    "generate": "node scripts/generate-hero.js && node scripts/generate-stats.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
