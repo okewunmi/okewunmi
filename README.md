@@ -1,8 +1,8 @@
 [![Afeez Okewunmi — Full-stack & Mobile Developer, Lagos Nigeria](https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/hero.png)](https://okewunmi.github.io)
 
 [![GitHub](https://img.shields.io/badge/GitHub-okewunmi-181717?style=flat-square&logo=github)](https://github.com/okewunmi)
-[![Portfolio](https://img.shields.io/badge/Portfolio-okewunmi.github.io-00C264?style=flat-square&logo=vercel&logoColor=white)](https://okewunmi.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/YOUR-LINKEDIN-HERE)
+[![Portfolio](https://img.shields.io/badge/Portfolio-okewunmi.github.io-00C264?style=flat-square&logo=vercel&logoColor=white)](https://okewunmi.netlify.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/okewunmi)
 
 ## About
 
