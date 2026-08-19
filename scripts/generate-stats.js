@@ -15,22 +15,28 @@ const GITHUB_USER = "okewunmi";
 // Add or remove packages here — one card is generated per entry.
 const PACKAGES = [
   {
-    repo: "nominatim-landmark",
-    npmName: "nominatim-landmark",
-    label: "nominatim-landmark",
-    desc: "Nigerian address geocoder built on OpenStreetMap Nominatim",
+    repo: "react-native-naira-utils",
+    npmName: "react-native-naira-utils",
+    label: "react-native-naira-utils",
+    desc: "Naira/kobo formatting, NUBAN validation, and USSD helpers for Expo apps",
   },
   {
-    repo: "react-native-yarngpt",
-    npmName: "react-native-yarngpt",
-    label: "react-native-yarngpt",
-    desc: "React Native client for YarnGPT, Nigerian-accented text-to-speech",
+    repo: "naija-nllb-translate",
+    npmName: "naija-nllb-translate",
+    label: "naija-nllb-translate",
+    desc: "Offline English ↔ Hausa/Igbo/Yoruba translation via NLLB-200 on ONNX",
   },
   {
-    repo: "ussd-router",
-    npmName: "ussd-router",
-    label: "ussd-router",
-    desc: "USSD state router with Africa's Talking and Qrios adapters",
+    repo: "ussd-router-plus",
+    npmName: "ussd-router-plus",
+    label: "ussd-router-plus",
+    desc: "Express-style USSD router with Africa's Talking and Qrios adapters",
+  },
+  {
+    repo: "react-native-text-extract",
+    npmName: "react-native-text-extract",
+    label: "react-native-text-extract",
+    desc: "On-device text extraction from PDF, DOCX, XLSX, and CSV for Expo apps",
   },
 ];
 

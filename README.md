@@ -47,20 +47,50 @@ I'm a full-stack and mobile developer based in Lagos, Nigeria, building products
      via scripts/generate-stats.js — live npm downloads + GitHub stars, no manual edits needed. -->
 
 <p>
-  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-nominatim-landmark.svg" width="100%" alt="nominatim-landmark stats" />
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-react-native-naira-utils.svg" width="100%" alt="react-native-naira-utils stats" />
 </p>
 <p>
-  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-react-native-yarngpt.svg" width="100%" alt="react-native-yarngpt stats" />
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-naija-nllb-translate.svg" width="100%" alt="naija-nllb-translate stats" />
 </p>
 <p>
-  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-ussd-router.svg" width="100%" alt="ussd-router stats" />
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-ussd-router-plus.svg" width="100%" alt="ussd-router-plus stats" />
+</p>
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-react-native-text-extract.svg" width="100%" alt="react-native-text-extract stats" />
 </p>
 
 | Package | What it does |
 |---|---|
-| [`nominatim-landmark`](https://github.com/okewunmi/nominatim-landmark) | Nigerian address geocoder built on OpenStreetMap Nominatim |
-| [`react-native-yarngpt`](https://github.com/okewunmi/react-native-yarngpt) | React Native client for YarnGPT, Nigerian-accented text-to-speech |
-| `ussd-router` *(publishing soon)* | USSD state router with Africa's Talking and Qrios adapters |
+| [`react-native-naira-utils`](https://www.npmjs.com/package/react-native-naira-utils) | Naira/kobo formatting, phone/network detection, and NUBAN validation for Expo apps |
+| [`naija-nllb-translate`](https://www.npmjs.com/package/naija-nllb-translate) | Offline English ↔ Hausa/Igbo/Yoruba/Fulfulde/Kanuri translation via NLLB-200 on ONNX |
+| [`ussd-router-plus`](https://www.npmjs.com/package/ussd-router-plus) | Express-style USSD state router with Africa's Talking and Qrios adapters |
+| [`react-native-text-extract`](https://www.npmjs.com/package/react-native-text-extract) | On-device text extraction from PDF, DOCX, XLSX, and CSV, with API fallback |
+
+<!-- ════════════════════════  AI PROJECTS  ════════════════════════ -->
+
+## AI PROJECTS
+
+### Seizure Sentinel
+A real-time epileptic seizure detection system built on a bidirectional LSTM with attention over EEG signals, aiming to match or beat the false-alarm rates of commercial monitoring devices. [Live demo](https://seizure-sentinel-1.onrender.com/) · [Repo](https://github.com/okewunmi/seizure-sentinel)
+
+### Consensus Bridge
+A platform for structured, at-scale deliberative dialogue — tackling the problem of running real democratic discussion beyond small-group settings. [Live demo](https://consensus-bridge.netlify.app/) · [Repo](https://github.com/okewunmi/consensus-bridge)
+
+### Voxify — Text-to-Speech
+An AI app that converts text into high-quality, natural-sounding speech. [Download the Android app](https://www.upload-apk.com/en/DssbK9PV8KUgfvW/)
+
+### Voxify — Text Extraction API
+A companion API and web playground for pulling clean text out of uploaded documents. [Try the playground](https://voxifyweb.netlify.app/upload)
+
+<!-- ════════════════════════  CORPORATE SITES  ════════════════════════ -->
+
+## WEBSITES FOR CORPORATE BODIES
+
+### Da Hausa Initiative
+Full community platform for an org working to improve financial and data literacy across Hausa-speaking communities in Northern Nigeria: public site, admin dashboard, messaging, and a blog system with threaded comments and reactions. Next.js + Supabase. [Site](https://dahausainitiative.org/) · [Repo](https://github.com/okewunmi/dhi-website)
+
+### MCAN Oyo
+Website built for the Muslim Corpers' Association of Nigeria, Oyo chapter. [Site](https://mcanoyo.org.ng/) · [Repo](https://github.com/okewunmi/Mcan-oyo)
 
 <!-- ════════════════════════  VENTURES  ════════════════════════ -->
 
@@ -68,9 +98,6 @@ I'm a full-stack and mobile developer based in Lagos, Nigeria, building products
 
 ### ChargeFinder NG
 EV charging station locator for Nigeria's emerging EV market — React Native/Expo + Supabase, built on the EVPoint UI kit. *(In progress)*
-
-### Da Hausa Initiative
-Full community platform: public site, admin dashboard, messaging, and a blog system with threaded comments and reactions. Next.js + Supabase.
 
 ### Al-Furqan Centre
 19-route Next.js/Supabase platform with a full CMS for non-technical staff and a bank-transfer + WhatsApp payment flow.
