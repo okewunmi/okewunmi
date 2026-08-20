@@ -6,6 +6,7 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { escapeXml, wrapText } from "./lib/svg-utils.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ASSETS_DIR = join(__dirname, "..", "assets");
@@ -18,34 +19,38 @@ const PACKAGES = [
     repo: "react-native-naira-utils",
     npmName: "react-native-naira-utils",
     label: "react-native-naira-utils",
-    desc: "Naira/kobo formatting, NUBAN validation, and USSD helpers for Expo apps",
+    desc: "Naira/kobo formatting, phone/network detection, and NUBAN validation for Expo apps",
   },
   {
     repo: "naija-nllb-translate",
     npmName: "naija-nllb-translate",
     label: "naija-nllb-translate",
-    desc: "Offline English ↔ Hausa/Igbo/Yoruba translation via NLLB-200 on ONNX",
+    desc: "Offline English ↔ Hausa/Igbo/Yoruba/Fulfulde/Kanuri translation via NLLB-200 on ONNX",
   },
   {
     repo: "ussd-router-plus",
     npmName: "ussd-router-plus",
     label: "ussd-router-plus",
-    desc: "Express-style USSD router with Africa's Talking and Qrios adapters",
+    desc: "Express-style USSD state router with Africa's Talking and Qrios adapters",
   },
   {
     repo: "react-native-text-extract",
     npmName: "react-native-text-extract",
     label: "react-native-text-extract",
-    desc: "On-device text extraction from PDF, DOCX, XLSX, and CSV for Expo apps",
+    desc: "On-device text extraction from PDF, DOCX, XLSX, and CSV, with API fallback",
   },
 ];
 
-const BG = "#0a0a0a";
-const BORDER = "#232323";
-const ACCENT = "#00C264";
-const TEXT = "#f5f5f5";
-const MUTED = "#9ca3af";
+// White-card theme — kept separate from the dark hero/project-card theme
+// per request, so the open-source section reads distinctly on the page.
+const BG = "#ffffff";
+const BORDER = "#e5e7eb";
+const CHIP_BG = "#0a0a0a";
+const ACCENT = "#00A854"; // slightly darker than brand green for AA contrast on white
+const TEXT = "#0a0a0a";
+const MUTED = "#6b7280";
 const FONT = "'Segoe UI', Helvetica, Arial, sans-serif";
+const MONO = "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace";
 
 async function getStars(repo) {
   try {
@@ -87,23 +92,29 @@ function fmt(n) {
   return String(n);
 }
 
-function escapeXml(str) {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-
-function cardSvg({ label, desc, stars, downloads, publishedSoon }) {
+function cardSvg({ label, desc, npmName, stars, downloads, publishedSoon }) {
   const WIDTH = 760;
-  const HEIGHT = 120;
+  const HEIGHT = 172;
 
-  const rightLine = publishedSoon
-    ? `<text x="34" y="100" font-family="${FONT}" font-size="14" font-weight="600" fill="${MUTED}">publishing soon</text>`
-    : `<text x="34" y="100" font-family="${FONT}" font-size="14" font-weight="600" fill="${ACCENT}">★ ${fmt(
+  const descLines = wrapText(desc, 68, 2);
+  const descSvg = descLines
+    .map(
+      (line, i) =>
+        `<text x="34" y="${62 + i * 18}" font-family="${FONT}" font-size="14" fill="${MUTED}">${escapeXml(
+          line
+        )}</text>`
+    )
+    .join("\n  ");
+
+  const installText = `$ npm install ${npmName}`;
+  const chipWidth = Math.min(692, 22 + installText.length * 7.3);
+
+  const statsLine = publishedSoon
+    ? `<text x="34" y="152" font-family="${FONT}" font-size="14" font-weight="600" fill="${MUTED}">publishing soon</text>`
+    : `<text x="34" y="152" font-family="${FONT}" font-size="14" font-weight="600" fill="${ACCENT}">★ ${fmt(
         stars
       )} stars</text>
-  <text x="220" y="100" font-family="${FONT}" font-size="14" font-weight="600" fill="${ACCENT}">⬇ ${fmt(
+  <text x="220" y="152" font-family="${FONT}" font-size="14" font-weight="600" fill="${ACCENT}">⬇ ${fmt(
         downloads
       )} / week</text>`;
 
@@ -114,13 +125,15 @@ function cardSvg({ label, desc, stars, downloads, publishedSoon }) {
     HEIGHT - 1
   }" rx="12" fill="${BG}" stroke="${BORDER}"/>
   <rect x="0" y="0" width="6" height="${HEIGHT}" rx="3" fill="${ACCENT}"/>
-  <text x="34" y="42" font-family="${FONT}" font-size="22" font-weight="700" fill="${TEXT}">${escapeXml(
+  <text x="34" y="38" font-family="${FONT}" font-size="22" font-weight="700" fill="${TEXT}">${escapeXml(
     label
   )}</text>
-  <text x="34" y="68" font-family="${FONT}" font-size="14" fill="${MUTED}">${escapeXml(
-    desc
+  ${descSvg}
+  <rect x="34" y="88" width="${chipWidth}" height="26" rx="6" fill="${CHIP_BG}"/>
+  <text x="${34 + chipWidth / 2}" y="105" text-anchor="middle" font-family="${MONO}" font-size="12.5" fill="${ACCENT}">${escapeXml(
+    installText
   )}</text>
-  ${rightLine}
+  ${statsLine}
 </svg>
 `;
 }
@@ -141,6 +154,7 @@ async function main() {
     const svg = cardSvg({
       label: pkg.label,
       desc: pkg.desc,
+      npmName: pkg.npmName,
       stars,
       downloads,
       publishedSoon,

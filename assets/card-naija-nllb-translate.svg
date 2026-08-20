@@ -1,8 +1,10 @@
-<svg width="760" height="120" viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="naija-nllb-translate stats">
-  <rect x="0.5" y="0.5" width="759" height="119" rx="12" fill="#0a0a0a" stroke="#232323"/>
-  <rect x="0" y="0" width="6" height="120" rx="3" fill="#00C264"/>
-  <text x="34" y="42" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5">naija-nllb-translate</text>
-  <text x="34" y="68" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#9ca3af">Offline English ↔ Hausa/Igbo/Yoruba translation via NLLB-200 on ONNX</text>
-  <text x="34" y="100" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#00C264">★ — stars</text>
-  <text x="220" y="100" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#00C264">⬇ 6 / week</text>
+<svg width="760" height="172" viewBox="0 0 760 172" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="naija-nllb-translate stats">
+  <rect x="0.5" y="0.5" width="759" height="171" rx="12" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="0" y="0" width="6" height="172" rx="3" fill="#00A854"/>
+  <text x="34" y="38" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#0a0a0a">naija-nllb-translate</text>
+  <text x="34" y="62" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#6b7280">Offline English ↔ Hausa/Igbo/Yoruba/Fulfulde/Kanuri translation via</text>
+  <text x="34" y="80" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#6b7280">NLLB-200 on ONNX</text>
+  <rect x="34" y="88" width="270.2" height="26" rx="6" fill="#0a0a0a"/>
+  <text x="169.1" y="105" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12.5" fill="#00A854">$ npm install naija-nllb-translate</text>
+  <text x="34" y="152" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#6b7280">publishing soon</text>
 </svg>

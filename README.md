@@ -28,23 +28,23 @@ I'm a full-stack and mobile developer based in Lagos, Nigeria, building products
 - Currently building **ChargeFinder NG**, an EV charging station locator for Nigeria's growing EV market
 - I write open-source npm packages aimed at African developer infrastructure — geocoding, TTS, USSD routing
 - Shipped production platforms for community and nonprofit organizations, including the Da Hausa Initiative and Al-Furqan Centre
-- HND Computer Science · exploring cybersecurity/DevSecOps as a specialization
+- BSc Computer Science · exploring cybersecurity/DevSecOps as a specialization
 
 <!-- ════════════════════════  WHAT I DO  ════════════════════════ -->
 
 ## WHAT I DO
 
-- 📱 Cross-platform mobile apps with React Native / Expo
-- 🌐 Full-stack web apps with Next.js + Supabase (auth, RLS, storage, CMS)
-- 📦 Open-source tooling for the Nigerian/African dev ecosystem
-- 🏗️ Accelerator submissions and MVP builds (ADTC, Open Startup tracks)
+<img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/whatido.svg" alt="What I do: Mobile, Full-Stack Web, Open Source, Accelerators" width="100%" />
 
 <!-- ════════════════════════  FEATURED OSS  ════════════════════════ -->
 
 ## FEATURED OPEN SOURCE
 
 <!-- These cards are auto-generated nightly by .github/workflows/update-stats.yml
-     via scripts/generate-stats.js — live npm downloads + GitHub stars, no manual edits needed. -->
+     via scripts/generate-stats.js — live npm downloads + GitHub stars, no manual edits needed.
+     (Cards further down this page — AI Projects, Corporate Sites, Ventures — come from
+     scripts/generate-projects.js; the What I Do banner comes from scripts/generate-whatido.js.
+     All four run together via `npm run generate`.) -->
 
 <p>
   <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-react-native-naira-utils.svg" width="100%" alt="react-native-naira-utils stats" />
@@ -70,40 +70,63 @@ I'm a full-stack and mobile developer based in Lagos, Nigeria, building products
 
 ## AI PROJECTS
 
-### Seizure Sentinel
-A real-time epileptic seizure detection system built on a bidirectional LSTM with attention over EEG signals, aiming to match or beat the false-alarm rates of commercial monitoring devices. [Live demo](https://seizure-sentinel-1.onrender.com/) · [Repo](https://github.com/okewunmi/seizure-sentinel)
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-seizure-sentinel.svg" width="100%" alt="Seizure Sentinel" />
+</p>
 
-### Consensus Bridge
-A platform for structured, at-scale deliberative dialogue — tackling the problem of running real democratic discussion beyond small-group settings. [Live demo](https://consensus-bridge.netlify.app/) · [Repo](https://github.com/okewunmi/consensus-bridge)
+[Live demo](https://seizure-sentinel-1.onrender.com/) · [Repo](https://github.com/okewunmi/seizure-sentinel)
 
-### Voxify — Text-to-Speech
-An AI app that converts text into high-quality, natural-sounding speech. [Download the Android app](https://www.upload-apk.com/en/DssbK9PV8KUgfvW/)
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-consensus-bridge.svg" width="100%" alt="Consensus Bridge" />
+</p>
 
-### Voxify — Text Extraction API
-A companion API and web playground for pulling clean text out of uploaded documents. [Try the playground](https://voxifyweb.netlify.app/upload)
+[Live demo](https://consensus-bridge.netlify.app/) · [Repo](https://github.com/okewunmi/consensus-bridge)
+
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-voxify-tts.svg" width="100%" alt="Voxify — Text-to-Speech" />
+</p>
+
+[Download the Android app](https://www.upload-apk.com/en/DssbK9PV8KUgfvW/)
+
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-voxify-text-extract.svg" width="100%" alt="Voxify — Text Extraction API" />
+</p>
+
+[Try the playground](https://voxifyweb.netlify.app/upload)
 
 <!-- ════════════════════════  CORPORATE SITES  ════════════════════════ -->
 
 ## WEBSITES FOR CORPORATE BODIES
 
-### Da Hausa Initiative
-Full community platform for an org working to improve financial and data literacy across Hausa-speaking communities in Northern Nigeria: public site, admin dashboard, messaging, and a blog system with threaded comments and reactions. Next.js + Supabase. [Site](https://dahausainitiative.org/) · [Repo](https://github.com/okewunmi/dhi-website)
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-dhi-website.svg" width="100%" alt="Da Hausa Initiative" />
+</p>
 
-### MCAN Oyo
-Website built for the Muslim Corpers' Association of Nigeria, Oyo chapter. [Site](https://mcanoyo.org.ng/) · [Repo](https://github.com/okewunmi/Mcan-oyo)
+[Site](https://dahausainitiative.org/) · [Repo](https://github.com/okewunmi/dhi-website)
+
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-mcan-oyo.svg" width="100%" alt="MCAN Oyo" />
+</p>
+
+[Site](https://mcanoyo.org.ng/) · [Repo](https://github.com/okewunmi/Mcan-oyo)
 
 <!-- ════════════════════════  VENTURES  ════════════════════════ -->
 
 ## VENTURES &amp; PROJECTS
 
-### ChargeFinder NG
-EV charging station locator for Nigeria's emerging EV market — React Native/Expo + Supabase, built on the EVPoint UI kit. *(In progress)*
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-chargefinder-ng.svg" width="100%" alt="ChargeFinder NG" />
+</p>
 
-### Al-Furqan Centre
-19-route Next.js/Supabase platform with a full CMS for non-technical staff and a bank-transfer + WhatsApp payment flow.
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-al-furqan-centre.svg" width="100%" alt="Al-Furqan Centre" />
+</p>
 
-### Portfolio CMS
-A database-driven Next.js/Supabase CMS with a full admin dashboard, replacing what used to be a static site. [okewunmi.netlify.app](https://okewunmi.netlify.app/)
+<p>
+  <img src="https://raw.githubusercontent.com/okewunmi/okewunmi/live-stats/assets/card-portfolio-cms.svg" width="100%" alt="Portfolio CMS" />
+</p>
+
+[okewunmi.netlify.app](https://okewunmi.netlify.app/)
 
 <!-- ════════════════════════  FOOTER  ════════════════════════ -->
 

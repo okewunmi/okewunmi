@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Generates the live-updating SVG hero banner and stat cards for github.com/okewunmi's profile README.",
   "scripts": {
-    "generate": "node scripts/generate-hero.js && node scripts/generate-stats.js"
+    "generate": "node scripts/generate-hero.js && node scripts/generate-whatido.js && node scripts/generate-stats.js && node scripts/generate-projects.js"
   },
   "engines": {
     "node": ">=18"
