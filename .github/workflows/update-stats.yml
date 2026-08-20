@@ -48,6 +48,13 @@ jobs:
           mkdir -p /tmp/live-stats-assets
           cp -r assets/. /tmp/live-stats-assets/
 
+          # assets/ is also tracked on main, so the generate step above left
+          # local modifications in this checkout. Discard them now (we already
+          # have the real copy safe in /tmp) so the branch switch below never
+          # gets blocked by "local changes would be overwritten".
+          git reset --hard HEAD
+          git clean -fd
+
           git fetch origin live-stats || true
           if git show-ref --verify --quiet refs/remotes/origin/live-stats; then
             git checkout -B live-stats origin/live-stats

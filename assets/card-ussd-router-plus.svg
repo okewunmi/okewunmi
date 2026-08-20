@@ -6,5 +6,6 @@
   <text x="34" y="80" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#6b7280">adapters</text>
   <rect x="34" y="88" width="241" height="26" rx="6" fill="#0a0a0a"/>
   <text x="154.5" y="105" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12.5" fill="#00A854">$ npm install ussd-router-plus</text>
-  <text x="34" y="152" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#6b7280">publishing soon</text>
+  <text x="34" y="152" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#00A854">★ — stars</text>
+  <text x="220" y="152" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#00A854">⬇ 23 / week</text>
 </svg>

@@ -6,5 +6,6 @@
   <text x="34" y="80" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#6b7280">NLLB-200 on ONNX</text>
   <rect x="34" y="88" width="270.2" height="26" rx="6" fill="#0a0a0a"/>
   <text x="169.1" y="105" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12.5" fill="#00A854">$ npm install naija-nllb-translate</text>
-  <text x="34" y="152" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#6b7280">publishing soon</text>
+  <text x="34" y="152" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#00A854">★ — stars</text>
+  <text x="220" y="152" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#00A854">⬇ 8 / week</text>
 </svg>
